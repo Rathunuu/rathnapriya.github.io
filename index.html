@@ -1,132 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+  <title>Rathnapriya Portfolio</title>
 
-    body {
-      background: #f4f6f8;
-      color: #333;
-    }
+  <!-- CSS LINK -->
+  <link rel="stylesheet" href="style.css" />
 
-    header {
-      background: linear-gradient(135deg, #2c3e50, #3498db);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    header h1 {
-      font-size: 40px;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-
-    /* GRID STYLE */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-
-    .card {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #3498db;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .btn:hover {
-      background: #2980b9;
-    }
-
-    .contact p {
-      margin: 8px 0;
-    }
-
-  </style>
 </head>
 
 <body>
 
   <!-- HEADER -->
   <header>
-    <h1>Hi, I'm Rathna priya J 👋</h1>
-    <p>AIML Student| AI Developer | AI Enthusiast</p>
+    <h1>Hi, I'm Rathnapriya J 👋</h1>
+    <p>AIML Student | AI Enthusiast | Future AI Engineer</p>
+
+    <div class="header-buttons">
+      <a href="https://linkedin.com/in/rathnapriya20" target="_blank" class="btn">LinkedIn</a>
+
+      <a href="https://github.com/" target="_blank" class="btn">GitHub</a>
+    </div>
   </header>
 
   <!-- ABOUT -->
   <section>
     <h2>About Me</h2>
-    <p>I am a BSc Artificial Intelligence and Machine Learning student with a strong interest in AI and modern technologies. I enjoy learning how intelligent systems work and how they can be used to solve real-world problems. My goal is to become an AI Engineer and build smart applications that make life easier and more efficient..</p>
+
+    <p>
+      I am a BSc Artificial Intelligence and Machine Learning student with a strong interest in AI and modern technologies.
+      I enjoy learning how intelligent systems work and how they can be used to solve real-world problems.
+      My goal is to become an AI Engineer and build smart applications that make life easier and more efficient.
+    </p>
   </section>
 
   <!-- SKILLS -->
   <section>
     <h2>Skills</h2>
+
     <div class="grid">
-      <div class="card">PYTHON</div>
+
+      <div class="card">Python</div>
+      <div class="card">HTML</div>
+      <div class="card">CSS</div>
       <div class="card">AI Basics</div>
-      <div class="card">ML Basics</div>
-      <div class="card">MS Excel</div>
+      <div class="card">Machine Learning Basics</div>
       <div class="card">GitHub</div>
+      <div class="card">MS Excel</div>
+
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section>
     <h2>Projects</h2>
+
     <div class="grid">
 
       <div class="card">
         <h3>Portfolio Website</h3>
-        <p>Personal portfolio using HTML & GitHub Pages.</p>
+
+        <p>
+          Personal portfolio website created using HTML, CSS and GitHub Pages.
+        </p>
       </div>
 
       <div class="card">
-        <h3>Fake job detection</h3>
-        <p>Fradulent Job Posting using python.</p>
+        <h3>Fake Job Detection</h3>
+
+        <p>
+          Fraudulent job posting detection project developed using Python.
+        </p>
       </div>
 
     </div>
@@ -135,28 +81,61 @@
   <!-- CERTIFICATES -->
   <section>
     <h2>Certificates</h2>
+
     <div class="grid">
-      <div class="card">Python for Data science,AI development Certificate from IBM </div>
-      <div class="card">Generative Certificate from IBM</div>
-      <div class="card">AI Introduction Certificate from COURSERA</div>
+
+      <div class="card">
+        Python for Data Science and AI Development - IBM
+      </div>
+
+      <div class="card">
+        Generative AI Certificate - IBM
+      </div>
+
+      <div class="card">
+        AI Introduction Certificate - Coursera
+      </div>
+
     </div>
   </section>
 
   <!-- RESUME -->
   <section>
     <h2>Resume</h2>
-    <p>Download my resume to know more about my skills and experience.</p>
-    <a class="btn" href="7db84f34-920b-4571-b17f-aad3bce44721.docx" target="_blank">Download Resume</a>
+
+    <p>
+      Download my resume to know more about my skills and experience.
+    </p>
+
+    <a class="btn" href="7db84f34-920b-4571-b17f-aad3bce44721.docx" target="_blank">
+      Download Resume
+    </a>
   </section>
 
   <!-- CONTACT -->
   <section class="contact">
+
     <h2>Contact</h2>
+
     <p>Email: rathunurathunu200@gmail.com</p>
+
     <p>Phone: +91 6369541549</p>
-    <p>LinkedIn:linkedin.com/in/rathnapriya20 </p>
-    <a class="btn" href="https://linkedin.com/in/rathnapriya20" target="_blank">Visit LinkedIn</a>
+
+    <p>
+      LinkedIn:
+      https://linkedin.com/in/rathnapriya20
+    </p>
+
+    <a class="btn" href="https://linkedin.com/in/rathnapriya20" target="_blank">
+      Visit LinkedIn
+    </a>
+
   </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Rathnapriya J | Portfolio Website</p>
+  </footer>
 
 </body>
 </html>
