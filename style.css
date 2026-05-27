@@ -1,1 +1,130 @@
+/* RESET */
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BODY */
+
+body{
+    background: #f4f7fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header{
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+header h1{
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* BUTTONS */
+
+.header-buttons{
+    margin-top: 20px;
+}
+
+.btn{
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    background: white;
+    color: #3498db;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: #2980b9;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* SECTIONS */
+
+section{
+    max-width: 1000px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+h2{
+    margin-bottom: 20px;
+    color: #2c3e50;
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
+}
+
+/* GRID */
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+
+.card{
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    background: #eef5ff;
+}
+
+/* CONTACT */
+
+.contact p{
+    margin: 10px 0;
+}
+
+/* FOOTER */
+
+footer{
+    text-align: center;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header h1{
+        font-size: 30px;
+    }
+
+    section{
+        margin: 20px;
+    }
+
+}
