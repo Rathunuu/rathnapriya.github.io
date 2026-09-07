@@ -728,3 +728,39 @@ footer {
     }
 
 }
+/* ================================
+   SCROLL UP ANIMATION
+================================ */
+
+.skill-category,
+.project-card,
+.cert-card,
+.experience-card,
+.achievement-card,
+.education-card {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When card becomes visible */
+.skill-category.show,
+.project-card.show,
+.cert-card.show,
+.experience-card.show,
+.achievement-card.show,
+.education-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Hover effect */
+.skill-category.show:hover,
+.project-card.show:hover,
+.cert-card.show:hover,
+.experience-card.show:hover,
+.achievement-card.show:hover,
+.education-card.show:hover {
+    transform: translateY(-10px) scale(1.03);
+}
