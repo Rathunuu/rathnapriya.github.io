@@ -396,6 +396,33 @@
         </p>
 
     </footer>
+    <script>
+    const cards = document.querySelectorAll(
+        '.skill-category, .project-card, .cert-card, .experience-card, .achievement-card, .education-card'
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    cards.forEach((card) => {
+        observer.observe(card);
+    });
+</script>
 
 </body>
 
