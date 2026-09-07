@@ -148,12 +148,16 @@ h2 {
 .education-card {
 
     background: #f8f9fa;
+
     padding: 20px;
+
     border-radius: 12px;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 
     margin: 10px 0;
+
+    border: 2px solid transparent;
 
     transition:
         background 0.3s ease,
@@ -163,7 +167,7 @@ h2 {
 
 
 /* =========================================
-   CARD INITIAL STATE
+   INITIAL CARD STATE
 ========================================= */
 
 .skill-category,
@@ -173,308 +177,357 @@ h2 {
 .achievement-card,
 .education-card {
     opacity: 0;
+    filter: blur(8px);
 }
 
 
 /* =========================================
-   SKILLS ANIMATION
-   Bottom + Left
+   SKILLS
+   Heavy Bottom + Left Animation
 ========================================= */
 
 .skill-category {
-    transform: translate(-80px, 100px);
+    transform: translate(-120px, 180px) scale(0.75);
 }
 
 .skill-category.show {
-    animation: skillsScroll 1s ease forwards;
+    animation: heavySkills 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes skillsScroll {
+@keyframes heavySkills {
 
     0% {
         opacity: 0;
-        transform: translate(-80px, 100px) rotate(-5deg);
-    }
-
-    70% {
-        opacity: 1;
-        transform: translate(10px, -10px) rotate(2deg);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0, 0) rotate(0);
-    }
-}
-
-
-/* =========================================
-   PROJECTS ANIMATION
-   Zoom + Bottom
-========================================= */
-
-.project-card {
-    transform: translateY(100px) scale(0.7);
-}
-
-.project-card.show {
-    animation: projectScroll 1.1s ease forwards;
-}
-
-@keyframes projectScroll {
-
-    0% {
-        opacity: 0;
-        transform: translateY(100px) scale(0.7) rotate(5deg);
-    }
-
-    70% {
-        opacity: 1;
-        transform: translateY(-15px) scale(1.05) rotate(-2deg);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1) rotate(0);
-    }
-}
-
-
-/* =========================================
-   CERTIFICATION ANIMATION
-   Right + Bottom
-========================================= */
-
-.cert-card {
-    transform: translate(80px, 100px);
-}
-
-.cert-card.show {
-    animation: certScroll 1s ease forwards;
-}
-
-@keyframes certScroll {
-
-    0% {
-        opacity: 0;
-        transform: translate(80px, 100px);
-    }
-
-    70% {
-        opacity: 1;
-        transform: translate(-10px, -10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-
-/* =========================================
-   EXPERIENCE ANIMATION
-   Bounce Up
-========================================= */
-
-.experience-card {
-    transform: translateY(120px) scale(0.8);
-}
-
-.experience-card.show {
-    animation: experienceScroll 1.2s ease forwards;
-}
-
-@keyframes experienceScroll {
-
-    0% {
-        opacity: 0;
-        transform: translateY(120px) scale(0.8);
+        filter: blur(8px);
+        transform: translate(-120px, 180px) scale(0.75) rotate(-8deg);
     }
 
     60% {
         opacity: 1;
-        transform: translateY(-20px) scale(1.05);
+        filter: blur(0);
+        transform: translate(20px, -25px) scale(1.05) rotate(3deg);
     }
 
     80% {
-        transform: translateY(8px) scale(0.98);
+        transform: translate(-8px, 8px) scale(0.98) rotate(-1deg);
     }
 
     100% {
         opacity: 1;
+        filter: blur(0);
+        transform: translate(0, 0) scale(1) rotate(0);
+    }
+}
+
+
+/* =========================================
+   PROJECTS
+   Heavy Zoom + Bottom Animation
+========================================= */
+
+.project-card {
+    transform: translateY(200px) scale(0.6);
+}
+
+.project-card.show {
+    animation: heavyProjects 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heavyProjects {
+
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(200px) scale(0.6) rotateX(25deg);
+    }
+
+    55% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(-35px) scale(1.08) rotateX(-3deg);
+    }
+
+    75% {
+        transform: translateY(15px) scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1) rotateX(0);
+    }
+}
+
+
+/* =========================================
+   CERTIFICATIONS
+   Heavy Right + Bottom Animation
+========================================= */
+
+.cert-card {
+    transform: translate(120px, 180px) scale(0.7);
+}
+
+.cert-card.show {
+    animation: heavyCerts 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heavyCerts {
+
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translate(120px, 180px) scale(0.7) rotate(7deg);
+    }
+
+    60% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(-20px, -25px) scale(1.06) rotate(-2deg);
+    }
+
+    80% {
+        transform: translate(8px, 8px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(0, 0) scale(1) rotate(0);
+    }
+}
+
+
+/* =========================================
+   EXPERIENCE
+   Heavy Bounce Up Animation
+========================================= */
+
+.experience-card {
+    transform: translateY(220px) scale(0.65);
+}
+
+.experience-card.show {
+    animation: heavyExperience 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heavyExperience {
+
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(220px) scale(0.65);
+    }
+
+    50% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(-40px) scale(1.08);
+    }
+
+    70% {
+        transform: translateY(20px) scale(0.96);
+    }
+
+    85% {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
         transform: translateY(0) scale(1);
     }
 }
 
 
 /* =========================================
-   ACHIEVEMENT ANIMATION
-   Bounce + Rotate
+   ACHIEVEMENTS
+   Heavy Bounce + Rotate
 ========================================= */
 
 .achievement-card {
-    transform: translateY(100px) scale(0.5);
+    transform: translateY(200px) scale(0.5);
 }
 
 .achievement-card.show {
-    animation: achievementScroll 1.2s ease forwards;
+    animation: heavyAchievements 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes achievementScroll {
+@keyframes heavyAchievements {
 
     0% {
         opacity: 0;
-        transform: translateY(100px) scale(0.5) rotate(-8deg);
+        filter: blur(10px);
+        transform: translateY(200px) scale(0.5) rotate(-10deg);
     }
 
-    60% {
+    50% {
         opacity: 1;
-        transform: translateY(-20px) scale(1.1) rotate(3deg);
+        filter: blur(0);
+        transform: translateY(-35px) scale(1.1) rotate(4deg);
     }
 
-    80% {
-        transform: translateY(5px) scale(0.97) rotate(-1deg);
+    70% {
+        transform: translateY(18px) scale(0.96) rotate(-2deg);
+    }
+
+    85% {
+        transform: translateY(-8px) scale(1.03) rotate(1deg);
     }
 
     100% {
         opacity: 1;
+        filter: blur(0);
         transform: translateY(0) scale(1) rotate(0);
     }
 }
 
 
 /* =========================================
-   EDUCATION ANIMATION
-   3D Effect
+   EDUCATION
+   Heavy 3D + Bottom Animation
 ========================================= */
 
 .education-card {
-    transform: translateY(100px) rotateX(60deg);
+    transform: translateY(200px) scale(0.7) rotateX(45deg);
 }
 
 .education-card.show {
-    animation: educationScroll 1.1s ease forwards;
+    animation: heavyEducation 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes educationScroll {
+@keyframes heavyEducation {
 
     0% {
         opacity: 0;
-        transform: translateY(100px) rotateX(60deg);
+        filter: blur(10px);
+        transform: translateY(200px) scale(0.7) rotateX(45deg);
     }
 
-    70% {
+    60% {
         opacity: 1;
-        transform: translateY(-10px) rotateX(-5deg);
+        filter: blur(0);
+        transform: translateY(-30px) scale(1.06) rotateX(-5deg);
+    }
+
+    80% {
+        transform: translateY(10px) scale(0.98) rotateX(2deg);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0) rotateX(0);
+        filter: blur(0);
+        transform: translateY(0) scale(1) rotateX(0);
     }
 }
 
 
 /* =========================================
-   CARD HOVER - SKILLS
+   SKILLS HOVER
 ========================================= */
 
 .skill-category.show:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform: translateY(-12px) scale(1.04);
 
     background: #eef7ff;
 
     border: 2px solid #3498db;
 
     box-shadow:
-        0 0 10px rgba(52, 152, 219, 0.3),
-        0 0 25px rgba(52, 152, 219, 0.5);
+        0 0 12px rgba(52, 152, 219, 0.4),
+        0 0 30px rgba(52, 152, 219, 0.6);
 }
 
 
 /* =========================================
-   CARD HOVER - PROJECTS
+   PROJECTS HOVER
 ========================================= */
 
 .project-card.show:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform: translateY(-12px) scale(1.04);
 
     background: #f8efff;
 
     border: 2px solid #8e44ad;
 
     box-shadow:
-        0 0 10px rgba(142, 68, 173, 0.3),
-        0 0 25px rgba(142, 68, 173, 0.5);
+        0 0 12px rgba(142, 68, 173, 0.4),
+        0 0 30px rgba(142, 68, 173, 0.6);
 }
 
 
 /* =========================================
-   CARD HOVER - CERTIFICATIONS
+   CERTIFICATIONS HOVER
 ========================================= */
 
 .cert-card.show:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform: translateY(-12px) scale(1.04);
 
     background: #edfff3;
 
     border: 2px solid #27ae60;
 
     box-shadow:
-        0 0 10px rgba(39, 174, 96, 0.3),
-        0 0 25px rgba(39, 174, 96, 0.5);
+        0 0 12px rgba(39, 174, 96, 0.4),
+        0 0 30px rgba(39, 174, 96, 0.6);
 }
 
 
 /* =========================================
-   CARD HOVER - EXPERIENCE
+   EXPERIENCE HOVER
 ========================================= */
 
 .experience-card.show:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform: translateY(-12px) scale(1.04);
 
     background: #fff7e8;
 
     border: 2px solid #f39c12;
 
     box-shadow:
-        0 0 10px rgba(243, 156, 18, 0.3),
-        0 0 25px rgba(243, 156, 18, 0.5);
+        0 0 12px rgba(243, 156, 18, 0.4),
+        0 0 30px rgba(243, 156, 18, 0.6);
 }
 
 
 /* =========================================
-   CARD HOVER - ACHIEVEMENTS
+   ACHIEVEMENTS HOVER
 ========================================= */
 
 .achievement-card.show:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform: translateY(-12px) scale(1.04);
 
     background: #fff0f8;
 
     border: 2px solid #e84393;
 
     box-shadow:
-        0 0 10px rgba(232, 67, 147, 0.3),
-        0 0 25px rgba(232, 67, 147, 0.5);
+        0 0 12px rgba(232, 67, 147, 0.4),
+        0 0 30px rgba(232, 67, 147, 0.6);
 }
 
 
 /* =========================================
-   CARD HOVER - EDUCATION
+   EDUCATION HOVER
 ========================================= */
 
 .education-card.show:hover {
-    transform: translateY(-10px) scale(1.04);
+
+    transform: translateY(-12px) scale(1.04);
 
     background: #edffff;
 
     border: 2px solid #00cec9;
 
     box-shadow:
-        0 0 10px rgba(0, 206, 201, 0.3),
-        0 0 25px rgba(0, 206, 201, 0.5);
+        0 0 12px rgba(0, 206, 201, 0.4),
+        0 0 30px rgba(0, 206, 201, 0.6);
 }
 
 
@@ -489,7 +542,9 @@ h2 {
 .experience-card h3,
 .achievement-card h3,
 .education-card h3 {
+
     color: #2c3e50;
+
     margin-bottom: 10px;
 }
 
@@ -504,14 +559,19 @@ a {
 
 .project-card a,
 .cert-card a {
+
     color: #3498db;
+
     font-weight: bold;
+
     text-decoration: none;
 }
 
 .project-card a:hover,
 .cert-card a:hover {
+
     color: #8e44ad;
+
     text-decoration: underline;
 }
 
@@ -525,13 +585,18 @@ a {
 }
 
 .contact a {
+
     color: #3498db;
+
     text-decoration: none;
+
     font-weight: bold;
 }
 
 .contact a:hover {
+
     color: #2c3e50;
+
     text-decoration: underline;
 }
 
@@ -541,6 +606,7 @@ a {
 ========================================= */
 
 .resume-btn {
+
     display: inline-block;
 
     margin-top: 20px;
@@ -561,6 +627,7 @@ a {
 }
 
 .resume-btn:hover {
+
     background: #2c3e50;
 
     transform: translateY(-5px) scale(1.05);
@@ -574,6 +641,7 @@ a {
 ========================================= */
 
 footer {
+
     text-align: center;
 
     background: #2c3e50;
