@@ -150,125 +150,192 @@ section{
 
 }
 /* =========================
-   DIFFERENT CARD ANIMATIONS
+   ✨ STRONG CARD ANIMATIONS
 ========================= */
 
-/* Skill Cards */
-.skill-category{
-    animation: slideLeft 0.8s ease;
+/* SKILLS - Blue glow + slide */
+.skill-category {
+    animation: skillEntry 1.2s ease-out;
+    border: 2px solid transparent;
 }
 
-/* Project Cards */
-.project-card{
-    animation: zoomIn 0.8s ease;
-}
-
-/* Certification Cards */
-.cert-card{
-    animation: slideRight 0.8s ease;
-}
-
-/* Experience Card */
-.experience-card{
-    animation: fadeUp 0.8s ease;
-}
-
-/* Achievement Cards */
-.achievement-card{
-    animation: bounceIn 0.9s ease;
-}
-
-/* Education Card */
-.education-card{
-    animation: zoomIn 0.8s ease;
+.skill-category:hover {
+    border-color: #3498db;
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
 }
 
 
-/* ANIMATION 1 - Slide Left */
-@keyframes slideLeft{
-    from{
-        opacity:0;
-        transform:translateX(-50px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+/* PROJECTS - Purple zoom + glow */
+.project-card {
+    animation: projectEntry 1.3s ease-out;
+    border: 2px solid transparent;
+}
+
+.project-card:hover {
+    border-color: #8e44ad;
+    box-shadow: 0 0 25px rgba(142, 68, 173, 0.5);
 }
 
 
-/* ANIMATION 2 - Zoom In */
-@keyframes zoomIn{
-    from{
-        opacity:0;
-        transform:scale(0.8);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+/* CERTIFICATIONS - Green slide + glow */
+.cert-card {
+    animation: certEntry 1.2s ease-out;
+    border: 2px solid transparent;
+}
+
+.cert-card:hover {
+    border-color: #27ae60;
+    box-shadow: 0 0 20px rgba(39, 174, 96, 0.5);
 }
 
 
-/* ANIMATION 3 - Slide Right */
-@keyframes slideRight{
-    from{
-        opacity:0;
-        transform:translateX(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+/* EXPERIENCE - Orange effect */
+.experience-card {
+    animation: experienceEntry 1.3s ease-out;
+    border: 2px solid transparent;
+}
+
+.experience-card:hover {
+    border-color: #f39c12;
+    box-shadow: 0 0 25px rgba(243, 156, 18, 0.5);
 }
 
 
-/* ANIMATION 4 - Fade Up */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+/* ACHIEVEMENTS - Pink bounce */
+.achievement-card {
+    animation: achievementEntry 1.4s ease-out;
+    border: 2px solid transparent;
+}
+
+.achievement-card:hover {
+    border-color: #e84393;
+    box-shadow: 0 0 25px rgba(232, 67, 147, 0.5);
 }
 
 
-/* ANIMATION 5 - Bounce */
-@keyframes bounceIn{
-    0%{
-        opacity:0;
-        transform:scale(0.5);
+/* EDUCATION - Cyan effect */
+.education-card {
+    animation: educationEntry 1.2s ease-out;
+    border: 2px solid transparent;
+}
+
+.education-card:hover {
+    border-color: #00cec9;
+    box-shadow: 0 0 25px rgba(0, 206, 201, 0.5);
+}
+
+
+/* =========================
+   ANIMATION KEYFRAMES
+========================= */
+
+/* Skills */
+@keyframes skillEntry {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px) rotate(-5deg);
     }
 
-    60%{
-        opacity:1;
-        transform:scale(1.1);
+    70% {
+        transform: translateX(20px) rotate(2deg);
     }
 
-    100%{
-        transform:scale(1);
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
     }
 }
-.skill-category:nth-child(2),
-.project-card:nth-child(2),
-.cert-card:nth-child(2),
-.experience-card:nth-child(2),
-.achievement-card:nth-child(2),
-.education-card:nth-child(2) {
-    animation-delay: 0.2s;
+
+
+/* Projects */
+@keyframes projectEntry {
+    0% {
+        opacity: 0;
+        transform: scale(0.4) rotate(8deg);
+    }
+
+    70% {
+        transform: scale(1.08) rotate(-2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
 }
 
-.skill-category:nth-child(3),
-.project-card:nth-child(3),
-.cert-card:nth-child(3),
-.education-card:nth-child(3) {
-    animation-delay: 0.4s;
+
+/* Certifications */
+@keyframes certEntry {
+    0% {
+        opacity: 0;
+        transform: translateX(120px);
+    }
+
+    60% {
+        transform: translateX(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.skill-category:nth-child(4),
-.cert-card:nth-child(4) {
-    animation-delay: 0.6s;
+
+/* Experience */
+@keyframes experienceEntry {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.7);
+    }
+
+    70% {
+        transform: translateY(-15px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Achievements */
+@keyframes achievementEntry {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Education */
+@keyframes educationEntry {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) rotateX(60deg);
+    }
+
+    70% {
+        transform: translateY(-10px) rotateX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
 }
