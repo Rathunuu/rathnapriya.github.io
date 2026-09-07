@@ -150,46 +150,105 @@ section{
 
 }
 /* =========================
-   CARD ANIMATION
+   DIFFERENT CARD ANIMATIONS
 ========================= */
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+/* Skill Cards */
+.skill-category{
+    animation: slideLeft 0.8s ease;
+}
+
+/* Project Cards */
+.project-card{
+    animation: zoomIn 0.8s ease;
+}
+
+/* Certification Cards */
+.cert-card{
+    animation: slideRight 0.8s ease;
+}
+
+/* Experience Card */
+.experience-card{
+    animation: fadeUp 0.8s ease;
+}
+
+/* Achievement Cards */
+.achievement-card{
+    animation: bounceIn 0.9s ease;
+}
+
+/* Education Card */
+.education-card{
+    animation: zoomIn 0.8s ease;
+}
+
+
+/* ANIMATION 1 - Slide Left */
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+/* ANIMATION 2 - Zoom In */
+@keyframes zoomIn{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+
+/* ANIMATION 3 - Slide Right */
+@keyframes slideRight{
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+/* ANIMATION 4 - Fade Up */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* ANIMATION 5 - Bounce */
+@keyframes bounceIn{
+    0%{
+        opacity:0;
+        transform:scale(0.5);
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    60%{
+        opacity:1;
+        transform:scale(1.1);
     }
-}
 
-.skill-category,
-.project-card,
-.cert-card,
-.experience-card,
-.achievement-card,
-.education-card {
-    animation: fadeUp 0.8s ease forwards;
-}
-.skill-category:nth-child(2),
-.project-card:nth-child(2),
-.cert-card:nth-child(2),
-.experience-card:nth-child(2),
-.achievement-card:nth-child(2),
-.education-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.skill-category:nth-child(3),
-.project-card:nth-child(3),
-.cert-card:nth-child(3),
-.education-card:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-.skill-category:nth-child(4),
-.cert-card:nth-child(4) {
-    animation-delay: 0.6s;
+    100%{
+        transform:scale(1);
+    }
 }
