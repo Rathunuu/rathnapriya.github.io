@@ -1,3 +1,4 @@
+```css
 /* =========================================
    RESET
 ========================================= */
@@ -9,15 +10,15 @@
     font-family: Arial, sans-serif;
 }
 
-
-/* =========================================
-   BODY
-========================================= */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background: #f4f7fb;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 
@@ -30,6 +31,20 @@ header {
     color: white;
     text-align: center;
     padding: 70px 20px;
+
+    animation: headerReveal 1s ease-out forwards;
+}
+
+@keyframes headerReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header h1 {
@@ -56,6 +71,12 @@ header p {
     margin-bottom: 20px;
 
     animation: profileFloat 3s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.35);
 }
 
 @keyframes profileFloat {
@@ -91,14 +112,21 @@ header p {
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
-    transition: 0.3s ease;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .btn:hover {
     background: #2980b9;
     color: white;
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -114,6 +142,16 @@ section {
     border-radius: 15px;
 
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+
+    /* Smooth section transition */
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+section:hover {
+    box-shadow:
+        0 12px 35px rgba(52, 152, 219, 0.12);
 }
 
 h2 {
@@ -153,16 +191,19 @@ h2 {
 
     border-radius: 12px;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.05);
 
     margin: 10px 0;
 
     border: 2px solid transparent;
 
+    /* Smooth hover */
     transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        border 0.3s ease;
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.35s ease,
+        box-shadow 0.4s ease,
+        border 0.35s ease;
 }
 
 
@@ -176,161 +217,50 @@ h2 {
 .experience-card,
 .achievement-card,
 .education-card {
+
     opacity: 0;
-    filter: blur(8px);
+
+    filter: blur(6px);
+
+    transform: translateY(70px) scale(0.94);
+
+    will-change: transform, opacity, filter;
 }
 
 
 /* =========================================
-   SKILLS
-   Heavy Bottom + Left Animation
+   COMMON SMOOTH CARD REVEAL
 ========================================= */
 
-.skill-category {
-    transform: translate(-120px, 180px) scale(0.75);
+.skill-category.show,
+.project-card.show,
+.cert-card.show,
+.experience-card.show,
+.achievement-card.show,
+.education-card.show {
+
+    animation:
+        seamlessCardReveal 0.9s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
 }
 
-.skill-category.show {
-    animation: heavySkills 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heavySkills {
+@keyframes seamlessCardReveal {
 
     0% {
         opacity: 0;
-        filter: blur(8px);
-        transform: translate(-120px, 180px) scale(0.75) rotate(-8deg);
-    }
-
-    60% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translate(20px, -25px) scale(1.05) rotate(3deg);
-    }
-
-    80% {
-        transform: translate(-8px, 8px) scale(0.98) rotate(-1deg);
-    }
-
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translate(0, 0) scale(1) rotate(0);
-    }
-}
-
-
-/* =========================================
-   PROJECTS
-   Heavy Zoom + Bottom Animation
-========================================= */
-
-.project-card {
-    transform: translateY(200px) scale(0.6);
-}
-
-.project-card.show {
-    animation: heavyProjects 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heavyProjects {
-
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(200px) scale(0.6) rotateX(25deg);
+        filter: blur(6px);
+        transform: translateY(70px) scale(0.94);
     }
 
     55% {
         opacity: 1;
         filter: blur(0);
-        transform: translateY(-35px) scale(1.08) rotateX(-3deg);
+        transform: translateY(-8px) scale(1.015);
     }
 
     75% {
-        transform: translateY(15px) scale(0.97);
-    }
-
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0) scale(1) rotateX(0);
-    }
-}
-
-
-/* =========================================
-   CERTIFICATIONS
-   Heavy Right + Bottom Animation
-========================================= */
-
-.cert-card {
-    transform: translate(120px, 180px) scale(0.7);
-}
-
-.cert-card.show {
-    animation: heavyCerts 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heavyCerts {
-
-    0% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translate(120px, 180px) scale(0.7) rotate(7deg);
-    }
-
-    60% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translate(-20px, -25px) scale(1.06) rotate(-2deg);
-    }
-
-    80% {
-        transform: translate(8px, 8px) scale(0.98);
-    }
-
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translate(0, 0) scale(1) rotate(0);
-    }
-}
-
-
-/* =========================================
-   EXPERIENCE
-   Heavy Bounce Up Animation
-========================================= */
-
-.experience-card {
-    transform: translateY(220px) scale(0.65);
-}
-
-.experience-card.show {
-    animation: heavyExperience 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heavyExperience {
-
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(220px) scale(0.65);
-    }
-
-    50% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(-40px) scale(1.08);
-    }
-
-    70% {
-        transform: translateY(20px) scale(0.96);
-    }
-
-    85% {
-        transform: translateY(-8px) scale(1.02);
+        transform: translateY(3px) scale(0.995);
     }
 
     100% {
@@ -342,84 +272,84 @@ h2 {
 
 
 /* =========================================
-   ACHIEVEMENTS
-   Heavy Bounce + Rotate
+   DIFFERENT CARD DIRECTIONS
+   Makes the scroll animation natural
 ========================================= */
 
-.achievement-card {
-    transform: translateY(200px) scale(0.5);
+.skill-category:nth-child(odd) {
+    transform: translateX(-70px) translateY(50px) scale(0.94);
 }
 
-.achievement-card.show {
-    animation: heavyAchievements 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.skill-category:nth-child(even) {
+    transform: translateX(70px) translateY(50px) scale(0.94);
 }
 
-@keyframes heavyAchievements {
+.project-card:nth-child(odd) {
+    transform: translateX(-60px) translateY(60px) scale(0.94);
+}
 
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(200px) scale(0.5) rotate(-10deg);
-    }
+.project-card:nth-child(even) {
+    transform: translateX(60px) translateY(60px) scale(0.94);
+}
 
-    50% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(-35px) scale(1.1) rotate(4deg);
-    }
+.cert-card:nth-child(odd) {
+    transform: translateX(-60px) translateY(55px) scale(0.94);
+}
 
-    70% {
-        transform: translateY(18px) scale(0.96) rotate(-2deg);
-    }
+.cert-card:nth-child(even) {
+    transform: translateX(60px) translateY(55px) scale(0.94);
+}
 
-    85% {
-        transform: translateY(-8px) scale(1.03) rotate(1deg);
-    }
+.experience-card {
+    transform: translateY(80px) scale(0.93);
+}
 
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0) scale(1) rotate(0);
-    }
+.achievement-card:nth-child(odd) {
+    transform: translateX(-60px) translateY(60px) scale(0.94);
+}
+
+.achievement-card:nth-child(even) {
+    transform: translateX(60px) translateY(60px) scale(0.94);
+}
+
+.education-card:nth-child(odd) {
+    transform: translateX(-60px) translateY(60px) scale(0.94);
+}
+
+.education-card:nth-child(even) {
+    transform: translateX(60px) translateY(60px) scale(0.94);
 }
 
 
 /* =========================================
-   EDUCATION
-   Heavy 3D + Bottom Animation
+   CARD STAGGER EFFECT
 ========================================= */
 
-.education-card {
-    transform: translateY(200px) scale(0.7) rotateX(45deg);
+.skill-category:nth-child(1),
+.project-card:nth-child(1),
+.cert-card:nth-child(1),
+.achievement-card:nth-child(1),
+.education-card:nth-child(1) {
+    animation-delay: 0.05s;
 }
 
-.education-card.show {
-    animation: heavyEducation 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.skill-category:nth-child(2),
+.project-card:nth-child(2),
+.cert-card:nth-child(2),
+.achievement-card:nth-child(2),
+.education-card:nth-child(2) {
+    animation-delay: 0.15s;
 }
 
-@keyframes heavyEducation {
+.skill-category:nth-child(3),
+.cert-card:nth-child(3),
+.education-card:nth-child(3) {
+    animation-delay: 0.25s;
+}
 
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(200px) scale(0.7) rotateX(45deg);
-    }
-
-    60% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(-30px) scale(1.06) rotateX(-5deg);
-    }
-
-    80% {
-        transform: translateY(10px) scale(0.98) rotateX(2deg);
-    }
-
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0) scale(1) rotateX(0);
-    }
+.skill-category:nth-child(4),
+.cert-card:nth-child(4) {
+    animation-delay: 0.35s;
 }
 
 
@@ -429,15 +359,15 @@ h2 {
 
 .skill-category.show:hover {
 
-    transform: translateY(-12px) scale(1.04);
+    transform: translateY(-10px) scale(1.035);
 
     background: #eef7ff;
 
     border: 2px solid #3498db;
 
     box-shadow:
-        0 0 12px rgba(52, 152, 219, 0.4),
-        0 0 30px rgba(52, 152, 219, 0.6);
+        0 10px 25px rgba(52, 152, 219, 0.25),
+        0 0 20px rgba(52, 152, 219, 0.2);
 }
 
 
@@ -447,15 +377,15 @@ h2 {
 
 .project-card.show:hover {
 
-    transform: translateY(-12px) scale(1.04);
+    transform: translateY(-10px) scale(1.035);
 
     background: #f8efff;
 
     border: 2px solid #8e44ad;
 
     box-shadow:
-        0 0 12px rgba(142, 68, 173, 0.4),
-        0 0 30px rgba(142, 68, 173, 0.6);
+        0 10px 25px rgba(142, 68, 173, 0.25),
+        0 0 20px rgba(142, 68, 173, 0.2);
 }
 
 
@@ -465,15 +395,15 @@ h2 {
 
 .cert-card.show:hover {
 
-    transform: translateY(-12px) scale(1.04);
+    transform: translateY(-10px) scale(1.035);
 
     background: #edfff3;
 
     border: 2px solid #27ae60;
 
     box-shadow:
-        0 0 12px rgba(39, 174, 96, 0.4),
-        0 0 30px rgba(39, 174, 96, 0.6);
+        0 10px 25px rgba(39, 174, 96, 0.25),
+        0 0 20px rgba(39, 174, 96, 0.2);
 }
 
 
@@ -483,15 +413,15 @@ h2 {
 
 .experience-card.show:hover {
 
-    transform: translateY(-12px) scale(1.04);
+    transform: translateY(-10px) scale(1.035);
 
     background: #fff7e8;
 
     border: 2px solid #f39c12;
 
     box-shadow:
-        0 0 12px rgba(243, 156, 18, 0.4),
-        0 0 30px rgba(243, 156, 18, 0.6);
+        0 10px 25px rgba(243, 156, 18, 0.25),
+        0 0 20px rgba(243, 156, 18, 0.2);
 }
 
 
@@ -501,15 +431,15 @@ h2 {
 
 .achievement-card.show:hover {
 
-    transform: translateY(-12px) scale(1.04);
+    transform: translateY(-10px) scale(1.035);
 
     background: #fff0f8;
 
     border: 2px solid #e84393;
 
     box-shadow:
-        0 0 12px rgba(232, 67, 147, 0.4),
-        0 0 30px rgba(232, 67, 147, 0.6);
+        0 10px 25px rgba(232, 67, 147, 0.25),
+        0 0 20px rgba(232, 67, 147, 0.2);
 }
 
 
@@ -519,15 +449,15 @@ h2 {
 
 .education-card.show:hover {
 
-    transform: translateY(-12px) scale(1.04);
+    transform: translateY(-10px) scale(1.035);
 
     background: #edffff;
 
     border: 2px solid #00cec9;
 
     box-shadow:
-        0 0 12px rgba(0, 206, 201, 0.4),
-        0 0 30px rgba(0, 206, 201, 0.6);
+        0 10px 25px rgba(0, 206, 201, 0.25),
+        0 0 20px rgba(0, 206, 201, 0.2);
 }
 
 
@@ -546,6 +476,20 @@ h2 {
     color: #2c3e50;
 
     margin-bottom: 10px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.skill-category:hover h3,
+.project-card:hover h3,
+.cert-card:hover h3,
+.experience-card:hover h3,
+.achievement-card:hover h3,
+.education-card:hover h3 {
+
+    transform: translateX(4px);
 }
 
 
@@ -623,7 +567,10 @@ a {
 
     font-weight: bold;
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .resume-btn:hover {
@@ -632,7 +579,8 @@ a {
 
     transform: translateY(-5px) scale(1.05);
 
-    box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+    box-shadow:
+        0 10px 25px rgba(52, 152, 219, 0.35);
 }
 
 
@@ -692,6 +640,27 @@ footer {
         margin: 10px auto;
     }
 
+    /* Lighter mobile reveal */
+    .skill-category,
+    .project-card,
+    .cert-card,
+    .experience-card,
+    .achievement-card,
+    .education-card {
+
+        transform: translateY(45px) scale(0.97);
+        filter: blur(4px);
+    }
+
+    .skill-category.show,
+    .project-card.show,
+    .cert-card.show,
+    .experience-card.show,
+    .achievement-card.show,
+    .education-card.show {
+
+        animation-duration: 0.75s;
+    }
 }
 
 
@@ -724,7 +693,29 @@ footer {
     .experience-card,
     .achievement-card,
     .education-card {
+
         padding: 16px;
     }
-
 }
+
+
+/* =========================================
+   ACCESSIBILITY
+   Reduce animation if user prefers it
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+```
